@@ -86,9 +86,6 @@ $(call soong_config_set, qtilocation, feature_nhz, false)
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
 
-# Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_sky
-
 # Kernel
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE := 0x00000000
@@ -142,9 +139,6 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(sort $(BOARD_VENDOR_RAMDISK_KERNEL_MODU
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PATH)/vendor_dlkm/modules.load))
 BOARD_VENDOR_KERNEL_MODULES := $(addprefix $(KERNEL_PATH)/vendor_dlkm/, $(BOARD_VENDOR_KERNEL_MODULES_LOAD))
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE :=  $(KERNEL_PATH)/vendor_dlkm/modules.blocklist
-
-# Lineage Health
-TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
@@ -223,9 +217,6 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 # Sepolicy - XiaomiParts
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy/private/xiaomi/devicesettings
-
-#SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
-#    $(DEVICE_PATH)/sepolicy/public/xiaomi/devicesettings
 
 # Vendor Boot
 PRODUCT_COPY_FILES += \
